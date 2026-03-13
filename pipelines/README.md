@@ -1,6 +1,10 @@
-# Pipelines Directory
+# ETL with Pandas
+```python
+import pandas as pd
 
-ETL scripts for data cleaning and transformation using Pandas/SQL.
-
----
-*Maintained by JianHanTey*
+def clean_and_transform(raw_csv):
+    df = pd.read_csv(raw_csv)
+    df.dropna(inplace=True)
+    df['normalized_score'] = (df['score'] - df['score'].mean()) / df['score'].std()
+    return df
+```
